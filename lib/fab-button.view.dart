@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'dart:math' as math;
 
-
 class PandaBarFabButton extends StatefulWidget {
-
   final double size;
   final Function onTap;
   final List<Color> colors;
@@ -22,16 +20,15 @@ class PandaBarFabButton extends StatefulWidget {
 }
 
 class _PandaBarFabButtonState extends State<PandaBarFabButton> {
-
   bool _touched = false;
 
   @override
   Widget build(BuildContext context) {
-
-    final _colors = widget.colors ?? [
-      Color(0xFF0286EA),
-      Color(0xFF27A1FE),
-    ];
+    final _colors = widget.colors ??
+        [
+          Color(0xFF0286EA),
+          Color(0xFF27A1FE),
+        ];
 
     return Padding(
       padding: EdgeInsets.only(bottom: 50),
@@ -50,29 +47,26 @@ class _PandaBarFabButtonState extends State<PandaBarFabButton> {
             width: _touched ? widget.size - 1 : widget.size,
             height: _touched ? widget.size - 1 : widget.size,
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(widget.size / 3),
-              gradient: LinearGradient(
-                begin: Alignment.centerLeft,
-                end: Alignment.centerRight,
-                colors: _touched ? _colors : _colors.reversed.toList()
-              ),
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.black38,
-                  blurRadius: 5,
-                  offset: Offset(3, 3)
-                )
-              ]
-            ),
+                borderRadius: BorderRadius.circular(widget.size / 3),
+                gradient: LinearGradient(
+                    begin: Alignment.centerLeft,
+                    end: Alignment.centerRight,
+                    colors: _touched ? _colors : _colors.reversed.toList()),
+                boxShadow: [
+                  BoxShadow(
+                      color: Colors.black38,
+                      blurRadius: 5,
+                      offset: Offset(3, 3))
+                ]),
             child: Center(
               child: Transform.rotate(
-                angle: -45 * math.pi / 180,
-                child: this.widget.icon ?? Icon(
-                  Icons.add,
-                  size: widget.size / 1.5,
-                  color: Colors.white,
-                )
-              ),
+                  angle: -45 * math.pi / 180,
+                  child: this.widget.icon ??
+                      Icon(
+                        Icons.add,
+                        size: widget.size / 1.5,
+                        color: Colors.white,
+                      )),
             ),
           ),
         ),

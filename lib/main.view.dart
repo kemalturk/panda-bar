@@ -3,9 +3,7 @@ import 'package:pandabar/fab-button.view.dart';
 import 'package:pandabar/model.dart';
 import 'package:pandabar/pandabar.dart';
 
-
 class PandaBar extends StatefulWidget {
-
   final Color backgroundColor;
   final List<PandaBarButtonData> buttonData;
   final Widget fabIcon;
@@ -20,17 +18,15 @@ class PandaBar extends StatefulWidget {
     this.backgroundColor,
     this.fabIcon,
     this.onFabButtonPressed,
-  }) :
-    assert(buttonData != null),
-    assert(onChange != null),
-    super(key: key);
+  })  : assert(buttonData != null),
+        assert(onChange != null),
+        super(key: key);
 
   @override
   _PandaBarState createState() => _PandaBarState();
 }
 
 class _PandaBarState extends State<PandaBar> {
-
   final double fabSize = 50;
   final Color unSelectedColor = Colors.grey;
 
@@ -38,8 +34,8 @@ class _PandaBarState extends State<PandaBar> {
 
   @override
   void initState() {
-
-    selectedId = widget.buttonData.length > 0 ? widget.buttonData.first.id : null;
+    selectedId =
+        widget.buttonData.length > 0 ? widget.buttonData.first.id : null;
     widget.onChange(selectedId);
 
     super.initState();
@@ -47,7 +43,6 @@ class _PandaBarState extends State<PandaBar> {
 
   @override
   Widget build(BuildContext context) {
-
     var clipper = _PandaBarClipper(fabSize: fabSize);
 
     return Stack(
@@ -56,10 +51,9 @@ class _PandaBarState extends State<PandaBar> {
         CustomPaint(
           painter: _ClipShadowPainter(
             shadow: Shadow(
-              color: Colors.white.withOpacity(.1),
-              blurRadius: 10,
-              offset: Offset(0, -3)
-            ),
+                color: Colors.white.withOpacity(.1),
+                blurRadius: 10,
+                offset: Offset(0, -3)),
             clipper: clipper,
           ),
           child: ClipPath(
@@ -68,53 +62,48 @@ class _PandaBarState extends State<PandaBar> {
               height: 70,
               padding: EdgeInsets.symmetric(vertical: 10),
               color: widget.backgroundColor ?? Color(0xFF222427),
-              child: Builder(
-                builder: (context) {
+              child: Builder(builder: (context) {
+                List<Widget> leadingChildren = [];
+                List<Widget> trailingChildren = [];
 
-                  List<Widget> leadingChildren = [];
-                  List<Widget> trailingChildren = [];
-
-                  widget.buttonData.asMap().forEach((i, data) {
-                    
-                    Widget btn = PandaBarButton(
-                      icon: data.icon,
-                      title: data.title,
-                      isSelected: data.id != null && selectedId == data.id,
-                      onTap: () {
-                        setState(() {
-                          selectedId = data.id;
-                        });
-                        this.widget.onChange(data.id);
-                      },
-                    );
-
-                    if(i < 2) {
-                      leadingChildren.add(btn);
-                    } else {
-                      trailingChildren.add(btn);
-                    }
-
-                  });
-
-                  return Row(
-                    children: [
-                      Expanded(
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceAround,
-                          children: leadingChildren,
-                        ),
-                      ),
-                      Container(width: fabSize),
-                      Expanded(
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: trailingChildren,
-                        ),
-                      ),
-                    ],
+                widget.buttonData.asMap().forEach((i, data) {
+                  Widget btn = PandaBarButton(
+                    icon: data.icon,
+                    title: data.title,
+                    isSelected: data.id != null && selectedId == data.id,
+                    onTap: () {
+                      setState(() {
+                        selectedId = data.id;
+                      });
+                      this.widget.onChange(data.id);
+                    },
                   );
-                }
-              ),
+
+                  if (i < 2) {
+                    leadingChildren.add(btn);
+                  } else {
+                    trailingChildren.add(btn);
+                  }
+                });
+
+                return Row(
+                  children: [
+                    Expanded(
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: leadingChildren,
+                      ),
+                    ),
+                    Container(width: fabSize),
+                    Expanded(
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: trailingChildren,
+                      ),
+                    ),
+                  ],
+                );
+              }),
             ),
           ),
         ),
@@ -129,7 +118,6 @@ class _PandaBarState extends State<PandaBar> {
 }
 
 class _PandaBarClipper extends CustomClipper<Path> {
-
   final double fabSize;
   final double padding = 50;
   final double centerRadius = 25;
@@ -139,30 +127,33 @@ class _PandaBarClipper extends CustomClipper<Path> {
 
   @override
   Path getClip(Size size) {
-
     final xCenter = (size.width / 2);
 
     final fabSizeWithPadding = fabSize + padding;
 
     final path = Path();
-    path.lineTo((xCenter - (fabSizeWithPadding / 2) - cornerRadius) , 0);
-    path.quadraticBezierTo(xCenter - (fabSizeWithPadding / 2), 0, (xCenter - (fabSizeWithPadding / 2)) + cornerRadius, cornerRadius);
-    path.lineTo(xCenter - centerRadius, (fabSizeWithPadding / 2) - centerRadius);
-    path.quadraticBezierTo(xCenter, (fabSizeWithPadding / 2), xCenter + centerRadius, (fabSizeWithPadding / 2) - centerRadius);
-    path.lineTo((xCenter + (fabSizeWithPadding / 2) - cornerRadius), cornerRadius);
-    path.quadraticBezierTo(xCenter + (fabSizeWithPadding / 2), 0, (xCenter + (fabSizeWithPadding / 2) + cornerRadius), 0);
+    path.lineTo((xCenter - (fabSizeWithPadding / 2) - cornerRadius), 0);
+    path.quadraticBezierTo(xCenter - (fabSizeWithPadding / 2), 0,
+        (xCenter - (fabSizeWithPadding / 2)) + cornerRadius, cornerRadius);
+    path.lineTo(
+        xCenter - centerRadius, (fabSizeWithPadding / 2) - centerRadius);
+    path.quadraticBezierTo(xCenter, (fabSizeWithPadding / 2),
+        xCenter + centerRadius, (fabSizeWithPadding / 2) - centerRadius);
+    path.lineTo(
+        (xCenter + (fabSizeWithPadding / 2) - cornerRadius), cornerRadius);
+    path.quadraticBezierTo(xCenter + (fabSizeWithPadding / 2), 0,
+        (xCenter + (fabSizeWithPadding / 2) + cornerRadius), 0);
     path.lineTo(size.width, 0);
     path.lineTo(size.width, size.height);
     path.lineTo(0, size.height);
     path.lineTo(0, 0);
     path.close();
-    
+
     return path;
   }
 
   @override
   bool shouldReclip(oldClipper) => false;
-
 }
 
 class _ClipShadowPainter extends CustomPainter {
