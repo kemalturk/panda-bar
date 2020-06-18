@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 class PandaBarButtonData {
 
-  final String id;
+  final dynamic id;
   final IconData icon;
   final String title;
 

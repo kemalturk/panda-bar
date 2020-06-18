@@ -6,22 +6,23 @@ import 'package:pandabar/pandabar.dart';
 
 class PandaBar extends StatefulWidget {
 
-  final Color color;
+  final Color backgroundColor;
   final List<PandaBarButtonData> buttonData;
   final Widget fabIcon;
 
-  final Function(String selectedPage) onChange;
+  final Function(dynamic selectedPage) onChange;
   final Function onFabButtonPressed;
 
   const PandaBar({
     Key key,
-    this.onChange,
-    this.onFabButtonPressed,
     @required this.buttonData,
-    this.color,
+    @required this.onChange,
+    this.backgroundColor,
     this.fabIcon,
+    this.onFabButtonPressed,
   }) :
     assert(buttonData != null),
+    assert(onChange != null),
     super(key: key);
 
   @override
@@ -33,13 +34,12 @@ class _PandaBarState extends State<PandaBar> {
   final double fabSize = 50;
   final Color unSelectedColor = Colors.grey;
 
-  String selectedId = '';
-
+  dynamic selectedId;
 
   @override
   void initState() {
 
-    selectedId = widget.buttonData.length > 0 ? widget.buttonData.first.id : '';
+    selectedId = widget.buttonData.length > 0 ? widget.buttonData.first.id : null;
     widget.onChange(selectedId);
 
     super.initState();
@@ -67,7 +67,7 @@ class _PandaBarState extends State<PandaBar> {
             child: Container(
               height: 70,
               padding: EdgeInsets.symmetric(vertical: 10),
-              color: widget.color ?? Color(0xFF222427),
+              color: widget.backgroundColor ?? Color(0xFF222427),
               child: Builder(
                 builder: (context) {
 

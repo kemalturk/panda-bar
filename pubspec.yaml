@@ -1,8 +1,8 @@
 name: pandabar
 description: A new Flutter package project.
-version: 0.0.1
+version: 0.0.2
 author: kemalturk
-homepage: http://ucanpanda.com
+repository: https://github.com/kemalturk/panda-bar
 
 environment:
   sdk: ">=2.7.0 <3.0.0"
