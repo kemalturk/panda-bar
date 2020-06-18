@@ -30,7 +30,7 @@ Add the dependency in `pubspec.yaml`:
 ```yaml
 dependencies:
   ...
-  pandabar: ^0.0.2
+  pandabar: ^0.0.3
 ```
 
 ## Basic Usage
