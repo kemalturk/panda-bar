@@ -3,7 +3,7 @@
 
 # PandaBar
 
-A fancy navigation bar for pandas.
+A fancy bottom navigation bar for pandas. Pandabar designed for new neumorphic design trend.
 
 | Preview | PageView |
 |---------|----------|
@@ -28,7 +28,7 @@ Add the dependency in `pubspec.yaml`:
 ```yaml
 dependencies:
   ...
-  pandabar: ^0.0.4
+  pandabar: ^0.0.5
 ```
 
 ## Basic Usage

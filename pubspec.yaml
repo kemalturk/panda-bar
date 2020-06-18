@@ -1,6 +1,6 @@
 name: pandabar
-description: A new Flutter package project.
-version: 0.0.4
+description: A fancy bottom navigation bar for pandas. Pandabar designed for new neumorphic design trend.
+version: 0.0.5
 homepage: https://github.com/kemalturk/panda-bar
 repository: https://github.com/kemalturk/panda-bar
 
