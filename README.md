@@ -9,8 +9,6 @@ A fancy navigation bar for pandas.
 |---------|----------|
 |![BottomNavBar Png](nav_bar.png "BottomNavBar") | ![Fix Gif](screen_shot.png "Fix") |
 
-## Customization (Optional)
-
 ### PandaBar
 - `buttonData` - navigation items, required more than one item and less than 5
 - `onChange` - required to listen when a item is pressed it provide the selected item's id
@@ -30,7 +28,7 @@ Add the dependency in `pubspec.yaml`:
 ```yaml
 dependencies:
   ...
-  pandabar: ^0.0.3
+  pandabar: ^0.0.4
 ```
 
 ## Basic Usage
