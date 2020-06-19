@@ -1,39 +1,25 @@
-![Pub](https://img.shields.io/pub/v/pandabar) 
+import 'package:flutter/material.dart';
+import 'package:pandabar/main.view.dart';
+import 'package:pandabar/pandabar.dart';
 
+void main() {
+  runApp(MyApp());
+}
 
-# PandaBar
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Flutter Demo',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+        visualDensity: VisualDensity.adaptivePlatformDensity,
+      ),
+      home: HomePage()
+    );
+  }
+}
 
-A fancy bottom navigation bar for pandas. Pandabar designed for new neumorphic design trend.
-
-| Preview | PageView |
-|---------|----------|
-|![BottomNavBar Gif](navbar.gif "BottomNavBar") | ![Fix Gif](screen.gif "Fix") |
-
-### PandaBar
-- `buttonData` - navigation items, required more than one item and less than 5
-- `onChange` - required to listen when a item is pressed it provide the selected item's id
-- `backgroundColor` - the navigation bar's background color
-- `fabIcon` - the navigation bar's fab button icon
-- `onFabButtonPressed` - required to listen fab button is pressed
-
-### PandaBarButtonData
-- `id` - the id of this item
-- `icon` - the icon of this item
-- `title` - the title of this item
-
-## Getting Started
-
-Add the dependency in `pubspec.yaml`:
-
-```yaml
-dependencies:
-  ...
-  pandabar: ^0.0.7
-```
-
-## Basic Usage
-
-```dart
 class HomePage extends StatefulWidget {
   @override
   _HomePageState createState() => _HomePageState();
@@ -41,7 +27,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
 
-  String page = 'Grey';
+  String page = 'Blue';
 
   @override
   Widget build(BuildContext context) {
@@ -50,14 +36,14 @@ class _HomePageState extends State<HomePage> {
       bottomNavigationBar: PandaBar(
         buttonData: [
           PandaBarButtonData(
-            id: 'Grey',
+            id: 'Blue',
             icon: Icons.dashboard,
-            title: 'Grey'
+            title: 'Blue'
           ),
           PandaBarButtonData(
-            id: 'Blue',
+            id: 'Green',
             icon: Icons.book,
-            title: 'Blue'
+            title: 'Green'
           ),
           PandaBarButtonData(
             id: 'Red',
@@ -83,8 +69,8 @@ class _HomePageState extends State<HomePage> {
         builder: (context) {
 
           switch (page) {
-            case 'Grey':
-              return Container(color: Colors.grey.shade900);
+            case 'Green':
+              return Container(color: Colors.green.shade500);
             case 'Blue':
               return Container(color: Colors.blue.shade900);
             case 'Red':
@@ -101,4 +87,3 @@ class _HomePageState extends State<HomePage> {
     );
   }
 }
-```
