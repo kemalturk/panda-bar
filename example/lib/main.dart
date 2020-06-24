@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:pandabar/main.view.dart';
 import 'package:pandabar/pandabar.dart';
@@ -62,7 +63,23 @@ class _HomePageState extends State<HomePage> {
           });
         },
         onFabButtonPressed: () {
-
+          showCupertinoDialog(
+            context: context,
+            builder: (context) {
+              return CupertinoAlertDialog(
+                content: Text('Fab Button Pressed!'),
+                actions: <Widget>[
+                  CupertinoDialogAction(
+                    child: Text('Close'),
+                    isDestructiveAction: true,
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
+                  )
+                ],
+              );
+            }
+          );
         },
       ),
       body: Builder(

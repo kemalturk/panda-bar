@@ -5,3 +5,6 @@
 ## 0.0.2
 
 - id type changed String to dynamic
+
+## 0.1.0
+- Bug fix

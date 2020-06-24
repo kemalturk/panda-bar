@@ -36,8 +36,6 @@ class _PandaBarState extends State<PandaBar> {
   void initState() {
     selectedId =
         widget.buttonData.length > 0 ? widget.buttonData.first.id : null;
-    widget.onChange(selectedId);
-
     super.initState();
   }
 

@@ -1,6 +1,6 @@
 name: pandabar
 description: A fancy bottom navigation bar for pandas. Pandabar designed for new neumorphic design trend.
-version: 0.0.7
+version: 0.1.0
 homepage: https://github.com/kemalturk/panda-bar
 
 environment:

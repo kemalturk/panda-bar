@@ -28,7 +28,7 @@ Add the dependency in `pubspec.yaml`:
 ```yaml
 dependencies:
   ...
-  pandabar: ^0.0.7
+  pandabar: ^0.1.0
 ```
 
 ## Basic Usage
