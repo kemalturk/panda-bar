@@ -10,11 +10,14 @@ A fancy bottom navigation bar for pandas. Pandabar designed for new neumorphic d
 |![BottomNavBar Gif](navbar.gif "BottomNavBar") | ![Fix Gif](screen.gif "Fix") |
 
 ### PandaBar
-- `buttonData` - navigation items, required more than one item and less than 5
-- `onChange` - required to listen when a item is pressed it provide the selected item's id
+- `buttonColor` - to change button color
+- `buttonSelectedColor` - to change button selected color
 - `backgroundColor` - the navigation bar's background color
+- `buttonData` - navigation items, required more than one item and less than 5
 - `fabIcon` - the navigation bar's fab button icon
+- `fabColors` - the navigation bar's fab button gradient colors
 - `onFabButtonPressed` - required to listen fab button is pressed
+- `onChange` - required to listen when a item is pressed it provide the selected item's id
 
 ### PandaBarButtonData
 - `id` - the id of this item
@@ -28,7 +31,7 @@ Add the dependency in `pubspec.yaml`:
 ```yaml
 dependencies:
   ...
-  pandabar: ^0.1.0
+  pandabar: ^0.1.1
 ```
 
 ## Basic Usage

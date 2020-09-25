@@ -51,7 +51,8 @@ class _PandaBarFabButtonState extends State<PandaBarFabButton> {
                 gradient: LinearGradient(
                     begin: Alignment.centerLeft,
                     end: Alignment.centerRight,
-                    colors: _touched ? _colors : _colors.reversed.toList()),
+                    colors: _touched ? _colors : _colors.reversed.toList()
+                  ),
                 boxShadow: [
                   BoxShadow(
                       color: Colors.black38,

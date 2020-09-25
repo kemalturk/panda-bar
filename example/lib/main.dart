@@ -35,11 +35,14 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       extendBody: true,
       bottomNavigationBar: PandaBar(
+        buttonColor: Colors.red.shade900,
+        buttonSelectedColor: Colors.red.shade500,
+        fabColors: [Colors.red.shade900, Colors.red],
         buttonData: [
           PandaBarButtonData(
             id: 'Blue',
             icon: Icons.dashboard,
-            title: 'Blue'
+            title: 'Blue',
           ),
           PandaBarButtonData(
             id: 'Green',
