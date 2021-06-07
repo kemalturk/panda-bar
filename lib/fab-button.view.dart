@@ -3,14 +3,14 @@ import 'dart:math' as math;
 
 class PandaBarFabButton extends StatefulWidget {
   final double size;
-  final Function onTap;
-  final List<Color> colors;
-  final Widget icon;
+  final Function? onTap;
+  final List<Color>? colors;
+  final Widget? icon;
 
   const PandaBarFabButton({
-    Key key,
-    @required this.size,
-    @required this.onTap,
+    Key? key,
+    required this.size,
+    required this.onTap,
     this.colors,
     this.icon,
   }) : super(key: key);
@@ -35,7 +35,7 @@ class _PandaBarFabButtonState extends State<PandaBarFabButton> {
       child: InkResponse(
         highlightColor: Colors.transparent,
         splashColor: Colors.transparent,
-        onTap: widget.onTap,
+        onTap: widget.onTap as void Function(),
         onHighlightChanged: (touched) {
           setState(() {
             _touched = touched;
@@ -51,8 +51,7 @@ class _PandaBarFabButtonState extends State<PandaBarFabButton> {
                 gradient: LinearGradient(
                     begin: Alignment.centerLeft,
                     end: Alignment.centerRight,
-                    colors: _touched ? _colors : _colors.reversed.toList()
-                  ),
+                    colors: _touched ? _colors : _colors.reversed.toList()),
                 boxShadow: [
                   BoxShadow(
                       color: Colors.black38,

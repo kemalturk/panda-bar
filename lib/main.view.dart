@@ -5,21 +5,21 @@ import 'package:pandabar/pandabar.dart';
 
 class PandaBar extends StatefulWidget {
 
-  final Color backgroundColor;
+  final Color? backgroundColor;
   final List<PandaBarButtonData> buttonData;
-  final Widget fabIcon;
+  final Widget? fabIcon;
 
-  final Color buttonColor;
-  final Color buttonSelectedColor;
-  final List<Color> fabColors;
+  final Color? buttonColor;
+  final Color? buttonSelectedColor;
+  final List<Color>? fabColors;
 
   final Function(dynamic selectedPage) onChange;
-  final Function onFabButtonPressed;
+  final Function? onFabButtonPressed;
 
   const PandaBar({
-    Key key,
-    @required this.buttonData,
-    @required this.onChange,
+    required Key key,
+    required this.buttonData,
+    required this.onChange,
     this.backgroundColor,
     this.fabIcon,
     this.fabColors,
@@ -170,7 +170,7 @@ class _ClipShadowPainter extends CustomPainter {
   final Shadow shadow;
   final CustomClipper<Path> clipper;
 
-  _ClipShadowPainter({@required this.shadow, @required this.clipper});
+  _ClipShadowPainter({required this.shadow, required this.clipper});
 
   @override
   void paint(Canvas canvas, Size size) {
