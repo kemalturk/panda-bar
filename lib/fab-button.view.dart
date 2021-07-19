@@ -3,14 +3,14 @@ import 'dart:math' as math;
 
 class PandaBarFabButton extends StatefulWidget {
   final double size;
-  final Function onTap;
-  final List<Color> colors;
-  final Widget icon;
+  final VoidCallback onTap;
+  final List<Color>? colors;
+  final Widget? icon;
 
   const PandaBarFabButton({
-    Key key,
-    @required this.size,
-    @required this.onTap,
+    Key? key,
+    required this.size,
+    required this.onTap,
     this.colors,
     this.icon,
   }) : super(key: key);

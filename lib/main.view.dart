@@ -4,31 +4,28 @@ import 'package:pandabar/model.dart';
 import 'package:pandabar/pandabar.dart';
 
 class PandaBar extends StatefulWidget {
-
-  final Color backgroundColor;
+  final Color? backgroundColor;
   final List<PandaBarButtonData> buttonData;
-  final Widget fabIcon;
+  final Widget? fabIcon;
 
-  final Color buttonColor;
-  final Color buttonSelectedColor;
-  final List<Color> fabColors;
+  final Color? buttonColor;
+  final Color? buttonSelectedColor;
+  final List<Color>? fabColors;
 
   final Function(dynamic selectedPage) onChange;
-  final Function onFabButtonPressed;
+  final VoidCallback onFabButtonPressed;
 
   const PandaBar({
-    Key key,
-    @required this.buttonData,
-    @required this.onChange,
-    this.backgroundColor,
+    Key? key,
+    required this.buttonData,
+    required this.onChange,
+    required this.onFabButtonPressed,
     this.fabIcon,
+    this.backgroundColor,
     this.fabColors,
-    this.onFabButtonPressed,
     this.buttonColor,
     this.buttonSelectedColor,
-  })  : assert(buttonData != null),
-        assert(onChange != null),
-        super(key: key);
+  }) : super(key: key);
 
   @override
   _PandaBarState createState() => _PandaBarState();
@@ -49,7 +46,6 @@ class _PandaBarState extends State<PandaBar> {
 
   @override
   Widget build(BuildContext context) {
-
     final clipper = _PandaBarClipper(fabSize: fabSize);
 
     return Stack(
@@ -170,7 +166,7 @@ class _ClipShadowPainter extends CustomPainter {
   final Shadow shadow;
   final CustomClipper<Path> clipper;
 
-  _ClipShadowPainter({@required this.shadow, @required this.clipper});
+  _ClipShadowPainter({required this.shadow, required this.clipper});
 
   @override
   void paint(Canvas canvas, Size size) {

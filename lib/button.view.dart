@@ -6,13 +6,13 @@ class PandaBarButton extends StatefulWidget {
   final String title;
   final bool isSelected;
 
-  final Function onTap;
+  final VoidCallback? onTap;
 
-  final Color selectedColor;
-  final Color unselectedColor;
+  final Color? selectedColor;
+  final Color? unselectedColor;
 
   const PandaBarButton(
-      {Key key,
+      {Key? key,
       this.isSelected = false,
       this.icon = Icons.dashboard,
       this.selectedColor,
@@ -27,8 +27,8 @@ class PandaBarButton extends StatefulWidget {
 
 class _PandaBarButtonState extends State<PandaBarButton>
     with SingleTickerProviderStateMixin {
-  AnimationController animationController;
-  Animation<double> animation;
+  late AnimationController animationController;
+  late Animation<double> animation;
 
   @override
   void initState() {
