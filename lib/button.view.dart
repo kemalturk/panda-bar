@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-
 class PandaBarButton extends StatefulWidget {
   final IconData icon;
   final String? title;
@@ -11,15 +10,15 @@ class PandaBarButton extends StatefulWidget {
   final Color? selectedColor;
   final Color? unselectedColor;
 
-  const PandaBarButton(
-      {Key? key,
-      this.isSelected = false,
-      this.icon = Icons.dashboard,
-      this.selectedColor,
-      this.unselectedColor,
-      this.title,
-      this.onTap})
-      : super(key: key);
+  const PandaBarButton({
+    Key? key,
+    this.isSelected = false,
+    this.icon = Icons.dashboard,
+    this.selectedColor,
+    this.unselectedColor,
+    this.title,
+    this.onTap,
+  }) : super(key: key);
 
   @override
   _PandaBarButtonState createState() => _PandaBarButtonState();
@@ -64,6 +63,7 @@ class _PandaBarButtonState extends State<PandaBarButton>
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisSize:MainAxisSize.max, 
           children: [
             Icon(widget.icon,
                 color: widget.isSelected
@@ -72,14 +72,17 @@ class _PandaBarButtonState extends State<PandaBarButton>
             Container(
               height: animation.value,
             ),
-            if(widget.title != null)
-            Text(widget.title!,
+            if (widget.title != null)
+              Text(
+                widget.title!,
                 style: TextStyle(
-                    color: widget.isSelected
-                        ? (widget.selectedColor ?? Color(0xFF078DF0))
-                        : (widget.unselectedColor ?? Color(0xFF9FACBE)),
-                    fontWeight: FontWeight.bold,
-                    fontSize: 10))
+                  color: widget.isSelected
+                      ? (widget.selectedColor ?? Color(0xFF078DF0))
+                      : (widget.unselectedColor ?? Color(0xFF9FACBE)),
+                  fontWeight: FontWeight.bold,
+                  fontSize: 10,
+                ),
+              )
           ],
         ),
       ),
