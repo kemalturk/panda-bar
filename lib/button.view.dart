@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 class PandaBarButton extends StatefulWidget {
   final IconData icon;
-  final String title;
+  final String? title;
   final bool isSelected;
 
   final VoidCallback? onTap;
@@ -17,7 +17,7 @@ class PandaBarButton extends StatefulWidget {
       this.icon = Icons.dashboard,
       this.selectedColor,
       this.unselectedColor,
-      this.title = '',
+      this.title,
       this.onTap})
       : super(key: key);
 
@@ -72,7 +72,8 @@ class _PandaBarButtonState extends State<PandaBarButton>
             Container(
               height: animation.value,
             ),
-            Text(widget.title,
+            if(widget.title != null)
+            Text(widget.title!,
                 style: TextStyle(
                     color: widget.isSelected
                         ? (widget.selectedColor ?? Color(0xFF078DF0))
