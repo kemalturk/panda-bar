@@ -17,7 +17,7 @@ class PandaBar extends StatefulWidget {
   final VoidCallback? onFabButtonPressed;
 
   const PandaBar({
-    required Key key,
+    Key? key,
     required this.buttonData,
     required this.onChange,
     this.backgroundColor,
