@@ -14,7 +14,7 @@ class PandaBar extends StatefulWidget {
   final List<Color>? fabColors;
 
   final Function(dynamic selectedPage) onChange;
-  final Function? onFabButtonPressed;
+  final VoidCallback? onFabButtonPressed;
 
   const PandaBar({
     required Key key,
@@ -26,9 +26,7 @@ class PandaBar extends StatefulWidget {
     this.onFabButtonPressed,
     this.buttonColor,
     this.buttonSelectedColor,
-  })  : assert(buttonData != null),
-        assert(onChange != null),
-        super(key: key);
+  }) : super(key: key);
 
   @override
   _PandaBarState createState() => _PandaBarState();
@@ -164,6 +162,7 @@ class _PandaBarClipper extends CustomClipper<Path> {
 
   @override
   bool shouldReclip(oldClipper) => false;
+
 }
 
 class _ClipShadowPainter extends CustomPainter {

@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'dart:math' as math;
 
 class PandaBarFabButton extends StatefulWidget {
+
   final double size;
-  final Function? onTap;
+  final VoidCallback? onTap;
   final List<Color>? colors;
   final Widget? icon;
 
